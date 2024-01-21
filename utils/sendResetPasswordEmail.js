@@ -4,9 +4,9 @@ const sendResetPasswordEmail = async ({
   name,
   email,
   passwordToken,
-  origin,
+  newOrigin,
 }) => {
-  const resetURL = `${origin}/user/reset-password?token=${passwordToken}&email=${email}`;
+  const resetURL = `${newOrigin}/user/reset-password?token=${passwordToken}&email=${email}`;
 
   const message = `<p>Please reset your password by clicking on the following link : 
   <a href="${resetURL}">Reset Password</a></p>`;
