@@ -23,10 +23,10 @@ const { xss } = require("express-xss-sanitizer");
 app.set("trust proxy", 1);
 
 // middlewares
-app.use(express.static("./public"));
-app.use(express.json());
 // const __dirname = dirname(fileURLToPath(import.meta.url))
 app.use(express.static(path.resolve(__dirname, "./client/build")));
+// app.use(express.static("./public"));
+app.use(express.json());
 
 // other middlewares
 app.use(
