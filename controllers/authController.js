@@ -51,11 +51,11 @@ const register = async (req, res) => {
       verificationToken: hashString(verificationToken),
     });
 
-    const origin = "http://localhost:3000";
-    // const newOrigin = 'https://react-node-user-workflow-front-end.netlify.app';
+    // const origin = "http://localhost:3000";
+    const newOrigin = "https://node-project-auth-flow.onrender.com";
 
     // send email
-    await sendVerificationEmail({ name, email, verificationToken, origin });
+    await sendVerificationEmail({ name, email, verificationToken, newOrigin });
 
     res.status(201).json({
       msg: "Success! Please check your email to verify account",
@@ -222,12 +222,13 @@ const forgotPassword = async (req, res) => {
     await user.save();
 
     // send email
-    const origin = "http://localhost:3000";
+    // const origin = "http://localhost:3000";
+    const newOrigin = "https://node-project-auth-flow.onrender.com";
     await sendResetPasswordEmail({
       name: user.name,
       email,
       passwordToken,
-      origin,
+      newOrigin,
     });
   }
 
